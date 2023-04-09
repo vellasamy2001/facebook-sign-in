@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+	<head>
+		<title>
+			facebook
+		</title>
+	</head>
+	<style>
+	h1{
+	text-align:center;
+	color:blue;
+	font-size:45px;
+	}
+	body{
+	background:#f9f9f9;
+	}
+	.container{
+	width:40%;
+	margin:0 auto;
+	background:#ffff;
+	border-radius:5px;
+	box-shadow:0px 0px 10px 0px #ccc;
+	padding:10px;
+	overflow:hidden;
+	}
+	h3,small{
+	text-align:center;
+	display:block;
+	}
+	h3{
+	position:relative;
+	top:10px;
+	}
+	small,input,hr{
+	color:gray;
+	}
+	.flex{
+	display:flex;
+	flex-wrap:wrap;
+	}
+	.col1{
+	width:95%;
+	}
+	.col2{
+	width:50%;
+	}
+	.col3{
+	width:28%;
+	}
+	input[type="text"],input[type="email"],input[type="password"],input[type="date"]{
+	padding:10px;
+	border-radius:5px;
+	border:1px solid gray;
+	margin:3px 2px;
+	width:100%;
+    
+	}
+    
+	label{
+	margin:4px;
+	}
+	p{
+	font-size:13px;
+	color:gray;
+	}
+	button{
+	background:green;
+	border:none;
+	font-size: 22px;
+	border-radius:5px;
+	padding:8px 50px;
+	position:relative;
+	left:33%;
+	color:#fff;
+	}
+	.four{
+	border:1px solid gray;
+	padding:10px;
+	margin:10px;
+	width:20%;
+	}
+
+   
+     a{
+       text-decoration: none;
+
+    }
+
+	</style>
+	<body>
+		<h1>Facebook</h1>
+		<div class="container">
+		   <h3>Create a new account</h3>
+		   <small>It's quick and easy.</small>
+		   <hr>
+		    <form>
+			<div class="flex">
+                <div class="col2">
+				<input type="text"name="frist name" placeholder="First Name" style=" width:86%;" id="">
+				</div>
+		        <div class="col2">
+				<input type="text"name="frist name" placeholder="Last Name"  style=" width:90%;" id="name">
+				</div>
+				<div class="col1">
+				<input type="email" name="email"  placeholder="E-mail" id="email">
+				</div>
+				<div class="col1">
+				<input type="password"name="email"  placeholder="password" id="password">
+				</div>
+				<div class="col1">
+				<label for="date">Date of birth ?</label><br>
+			    <input type="date"name="date of birth" id="date">
+				</div>
+				<div class="col1">
+				<label for="gender">gender ?</label><br>
+
+				<div class="flex">
+				   <div class="four">
+				   <input type="radio" value="male" name="gender" id="m" ><label for="m">male</label>
+				   </div>
+				   <div class="four">
+				   <input type="radio" value="female" name="gender" id="f" ><label for="f">female</label>
+				   </div>
+				   <div class="four">
+				   <input type="radio" value="others" name="gender" id="o" ><label for="o">others</label>
+				   </div>
+		            </div>
+				</div>
+				
+               
+		   <p>People who use our service may have uploaded your contact information to Facebook <a href="#">Learn more</a></p>
+           <p>By clicking Sign Up, you agree to our<a href="#">Terms</a> , 
+            <a href="#">Privacy Policy </a>and <a href="#">Cookies Policy</a>. You may receive SMS notifications from us and can opt out at any time.</p>
+		   <div class="col1">
+		   <button type="submit">Sign up</button>
+		  
+           <h2 align="center"><a href="#">Already have an account?</a></h2>
+		   <div id="result"></div>
+        </div>
+
+
+		   <script>
+		   let form=document.querySelector("form");
+			form.addEventListener('submit',function(s){
+				s.preventDefault();
+				let name=document.getElementById("name").value;
+			let mail=document.getElementById("email").value;
+			let pass=document.getElementById("password").value;
+			let date=document.getElementById("date").value;
+			let result=document.getElementById("result");
+
+              localStorage.setItem("Name",name);
+			  localStorage.setItem("Email",email);
+			  localStorage.setItem("Pass",pass);
+			  localStorage.setItem("Date",date);
+
+			if((name=='') || (mail=='')  || (pass=='') || (date=='')){
+			result.innerHTML="please fill the form first next submit";
+			result.style.color="red";
+	       }
+			else if((!isNaN(name))){
+				result.innerHTML="name ender only letters";
+				result.style.color="red";
+			}
+			else{
+				result.innerHTML="welcome";
+					result.style.color="green";
+			}
+			})
+		   </script>
+		</div>
+	   </form>
+	</body>
+</html>
